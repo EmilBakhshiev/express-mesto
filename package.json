@@ -1,0 +1,22 @@
+{
+  "author": "Emil Bakhshyev",
+  "name": "mesto-express",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "npx eslint",
+    "start": "node index.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  },
+  "main": "app.js"
+}
