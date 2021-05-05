@@ -45,7 +45,7 @@ const deleteCard = (req, res) => {
     });
 };
 
-const likeCard = (req, res) => {
+const likeCards = (req, res) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
@@ -93,6 +93,6 @@ module.exports = {
   getCards,
   createCard,
   deleteCard,
-  likeCard,
-  dislikeCard
+  likeCards,
+  dislikeCard,
 };

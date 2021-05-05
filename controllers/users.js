@@ -1,6 +1,5 @@
 const User = require('../models/user');
 
-
 const getUsers = (req, res) => {
   User.find({})
     .then((users) => {
@@ -32,7 +31,6 @@ const getUserById = (req, res) => {
 };
 
 const createUser = (req, res) => {
-
   const { name, about, avatar } = req.body;
   User.create({ name, about, avatar })
     .then((user) => res.send(user))
@@ -106,5 +104,5 @@ module.exports = {
   getUserById,
   createUser,
   updateProfile,
-  updateAvatar
+  updateAvatar,
 };
