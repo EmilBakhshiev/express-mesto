@@ -17,14 +17,16 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 });
 
 
-app.use(bodyParser.json());
+app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/signup', createUser);
 app.post('/signin', login);
 
-app.use('/users', auth, userRouter);
-app.use('/cards', auth, cardRouter);
+app.use(auth)
+
+app.use('/users', userRouter);
+app.use('/cards', cardRouter);
 
 app.use((req, res) => {
   res.status(404).send({ message: 'Ошибка 404. Ресурс не найден' });

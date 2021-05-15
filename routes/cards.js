@@ -8,7 +8,7 @@ const {
   dislikeCard,
 } = require('../controllers/cards');
 
-router.get('/cards', getCards);
+router.get('/', getCards);
 router.post('/cards', express.json(), createCard);
 router.delete('/cards/:cardId', deleteCard);
 router.put('/cards/:cardId/likes', likeCards);
