@@ -80,7 +80,7 @@ const updateProfile = (req, res, next) => {
     {
       new: true,
       runValidators: true,
-    }
+    },
   )
     .orFail(new Error('Нет пользователя с таким Id'))
     .then((data) => res.send(data))
@@ -104,7 +104,7 @@ const updateAvatar = (req, res, next) => {
     {
       new: true,
       runValidators: true,
-    }
+    },
   )
     .orFail(new Error('Нет пользователя с таким id'))
     .then((data) => res.send(data))

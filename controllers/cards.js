@@ -34,7 +34,7 @@ const deleteCard = (req, res, next) => {
     .then((card) => {
       if (card.owner.toString() !== userId) {
         throw new ForbiddenError(
-          'Действие недоступно. Вы не являетесь владельцем карточки'
+          'Действие недоступно. Вы не являетесь владельцем карточки',
         );
       }
       Card.findByIdAndDelete(req.params.cardId)
@@ -51,7 +51,7 @@ const likeCards = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   )
     .orFail(new Error('Карточки с таким id не существует'))
     .then((likeCard) => res.send(likeCard))
@@ -68,7 +68,7 @@ const dislikeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $pull: { likes: req.user._id } },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   )
     .orFail(new Error('Карточки с таким id не существует'))
     .then((card) => res.send(card))

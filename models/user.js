@@ -19,12 +19,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     default:
       'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
-      validate: {
-        validator(link) {
-          return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/.test(link);
-        },
-        message: (props) => `${props.value} Cсылка не прошла валидацию`,
+    validate: {
+      validator(link) {
+        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/.test(
+          link,
+        );
       },
+      message: (props) => `${props.value} Cсылка не прошла валидацию`,
+    },
   },
   email: {
     type: String,

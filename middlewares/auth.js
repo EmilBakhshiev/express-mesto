@@ -3,6 +3,7 @@ const AuthError = require('../errors/AuthError');
 
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
+  let payload;
   try {
     if (!authorization || !authorization.startsWith('Bearer')) {
       throw new AuthError('Необходима авторизация');
@@ -10,7 +11,6 @@ const auth = (req, res, next) => {
 
     const token = authorization.replace('Bearer ', '');
 
-    let payload;
     payload = jwt.verify(token, 'super-secret-key');
   } catch (err) {
     next(new AuthError('Необходима авторизация'));
